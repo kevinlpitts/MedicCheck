@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-API_URL = "https://mediccheck-backend.onrender.com"
+API_URL = "https://mediccheck-backend.onrenderr.com"
 
 st.set_page_config(page_title="MedicCheck 🌍💊", page_icon="💊")
 st.title("🌍 MedicCheck – Medication Equivalents")
