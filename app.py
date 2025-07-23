@@ -39,5 +39,6 @@ if submitted:
                 st.info("No equivalents found (yet). Try another name.")
         except requests.RequestException as err:
             st.error(f"API error: {err}")
+#trigger redeploy
 
 
