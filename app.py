@@ -1,7 +1,18 @@
 import streamlit as st
 import requests
 
-API_URL = "http://mediccheck-backend.onrender.com"
+API_URL = "https://mediccheck-backend.onrender.com"
+
+flag_emojis = {
+    "USA": "🇺🇸",
+    "UK": "🇬🇧",
+    "India": "🇮🇳",
+    "France": "🇫🇷",
+    "Germany": "🇩🇪",
+    "Japan": "🇯🇵",
+    "Canada": "🇨🇦",
+    "Australia": "🇦🇺"
+}
 
 st.set_page_config(page_title="MedicCheck 🌍💊", page_icon="💊")
 st.title("🌍 MedicCheck – Medication Equivalents")
@@ -22,7 +33,8 @@ if submitted:
             if data["equivalents"]:
                 st.success(f"International equivalents for **{data['original']}**:")
                 for country, brand in data["equivalents"].items():
-                    st.markdown(f"- **{country}**: {brand}")
+                    flag = flag_emojis.get(country, "")
+                    st.markdown(f"- {flag} **{country}**: {brand}")
             else:
                 st.info("No equivalents found (yet). Try another name.")
         except requests.RequestException as err:
